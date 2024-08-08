@@ -4,38 +4,39 @@
   <div
     class="flex items-center justify-between h-full md:flex-[2] flex-1 w-full"
   >
-    <!-- filter by title... -->
+    <!-- filter by name... -->
     <div
       class="searchInput flex items-center h-full md:border-r-2 border-lightGray dark:border-darkGray md:pr-3 md:flex-[4] flex-1"
     >
       <img
-        src="../../../assets/desktop/icon-search.svg"
+        src="assets/desktop/icon-search.svg"
         alt="search icon"
         class="w-[24px] h-[24px] mr-3"
       />
       <input
         type="text"
-        placeholder="Filter by title.."
-        name="filter-by-title"
-        id="filter-by-title"
-        [(ngModel)]="filterByTitle"
+        placeholder="Filter by name.."
+        name="filter-by-name"
+        id="filter-by-name"
+        [(ngModel)]="filterByName"
         (input)="filterUsers()"
         class="outline-none w-[70%] bg-inherit dark:text-white"
       />
     </div>
-    <!-- filter by location -->
-    <div class="location flex items-center h-full md:px-4 md:flex-[2] flex-1">
+
+    <!-- filter by email -->
+    <div class="flex items-center h-full md:px-4 md:flex-[2] flex-1">
       <img
-        src="../../../assets/desktop/icon-location.svg"
-        alt="location icon"
+        src="assets/desktop/email-icon.png"
+        alt="email icon"
         class="w-[16px] h-[23px] mr-3"
       />
       <input
         type="text"
-        placeholder="Filter by location"
-        name="filter-by-location"
-        id="filter-by-location"
-        [(ngModel)]="filterByLocation"
+        placeholder="Filter by email"
+        name="filter-by-email"
+        id="filter-by-email"
+        [(ngModel)]="filterByEmail"
         (input)="filterUsers()"
         class="outline-none w-[70%] dark:text-white bg-inherit"
       />
@@ -43,12 +44,12 @@
   </div>
 </div>
 
-<!-- MAIN PAGE CONTENT - JOBS CARDS -->
+<!-- MAIN PAGE CONTENT - USERS CARDS -->
 <div
-  id="jobs-container"
+  id="users-container"
   class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-[80px] mb-10 dark:bg-darkThemeBG"
 >
-  @for (user of users; track $index) {
+  @for (user of filteredUsers; track $index) {
   <app-users-card [user]="user"></app-users-card>
   }
 </div>
