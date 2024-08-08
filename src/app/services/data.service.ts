@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUserData } from '../interfaces/IUserData.interface';
+import { IUserDataResponse } from '../interfaces/IUserData.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +9,8 @@ import { IUserData } from '../interfaces/IUserData.interface';
 export class DataService {
   constructor(private _http: HttpClient) {}
 
-  fetchData(): Observable<IUserData[]> {
-    return this._http.get<IUserData[]>(
+  fetchData(): Observable<IUserDataResponse> {
+    return this._http.get<IUserDataResponse>(
       'https://reqres.in/api/users?page={page}'
     );
   }

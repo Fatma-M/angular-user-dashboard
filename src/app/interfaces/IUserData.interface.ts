@@ -5,3 +5,15 @@ export interface IUserData {
   last_name: string;
   avatar: string;
 }
+
+export interface IUserDataResponse {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  data: IUserData[];
+  support: {
+    url: string;
+    text: string;
+  };
+}
