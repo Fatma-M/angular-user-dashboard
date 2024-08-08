@@ -48,7 +48,9 @@
   id="jobs-container"
   class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-[80px] mb-10 dark:bg-darkThemeBG"
 >
-  <!-- CARDS GOES HERE FOR EACH USER -->
+  @for (user of users; track $index) {
+  <app-users-card [user]="user"></app-users-card>
+  }
 </div>
 
 @if (isNoUser) {
@@ -57,5 +59,9 @@
 </h1>
 }
 
-<!--  -->
-<mat-paginator [length]="usersLength" [pageSize]="pageSize"> </mat-paginator>
+<mat-paginator
+  [length]="usersLength"
+  [pageSize]="pageSize"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

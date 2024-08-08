@@ -1,0 +1,20 @@
+<div
+  class="card bg-white dark:bg-darkCardColor p-6 relative flex flex-col items-start justify-between rounded-md mt-[50px] cursor-pointer"
+>
+  <a [routerLink]="['user-details', user.id]">
+    <div
+      class="card-image w-[50px] h-[50px] flex items-center rounded-2xl absolute top-[-25px]"
+    >
+      <img [src]="user.avatar" alt="" class="block mx-auto" />
+    </div>
+    <div class="title font-bold my-1">
+      <p class="text-lg">{{ user.first_name }}</p>
+    </div>
+    <div class="companyName">
+      <span class="text-darkGray">{{ user.last_name }}</span>
+    </div>
+    <div class="companyLocation mt-8">
+      <span class="text-darkBlue font-bold">{{ user.email }}</span>
+    </div>
+  </a>
+</div>

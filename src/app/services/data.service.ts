@@ -9,9 +9,9 @@ import { IUserDataResponse } from '../interfaces/IUserData.interface';
 export class DataService {
   constructor(private _http: HttpClient) {}
 
-  fetchData(): Observable<IUserDataResponse> {
+  fetchData(pageNumber: number): Observable<IUserDataResponse> {
     return this._http.get<IUserDataResponse>(
-      'https://reqres.in/api/users?page={page}'
+      `https://reqres.in/api/users?page=${pageNumber}`
     );
   }
 }

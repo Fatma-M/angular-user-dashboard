@@ -6,11 +6,12 @@ import {
 } from '../../interfaces/IUserData.interface';
 import { DataService } from '../../services/data.service';
 import { FormsModule } from '@angular/forms';
+import { UserCardComponent } from '../user-card/user-card.component';
 
 @Component({
   selector: 'app-users-list',
   standalone: true,
-  imports: [MatPaginatorModule, FormsModule],
+  imports: [MatPaginatorModule, FormsModule, UserCardComponent],
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.css',
 })
@@ -22,6 +23,7 @@ export class UsersListComponent {
   isNoUser: boolean = false;
   usersLength: number = 0;
   pageSize: number = 0;
+  pageIndex: number = 1;
 
   constructor(private _dataService: DataService) {}
 
@@ -30,10 +32,9 @@ export class UsersListComponent {
   }
 
   getUsersData(): void {
-    this._dataService.fetchData().subscribe({
+    this._dataService.fetchData(this.pageIndex).subscribe({
       next: (response: IUserDataResponse) => {
         if (!response) return;
-        console.log('object', response);
 
         this.users = response?.data;
         this.filteredUsers = this.users;
@@ -41,6 +42,11 @@ export class UsersListComponent {
         this.pageSize = response?.per_page;
       },
     });
+  }
+
+  onPageChange(event: any): void {
+    this.pageIndex = event.pageIndex + 1;
+    this.getUsersData();
   }
 
   filterUsers() {}
