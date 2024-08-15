@@ -30,7 +30,7 @@ Users should be able to:
 
 - HTML
 - CSS & Tailwind CSS
-- Angu
+- Angular 18
 
 ### Run The Development Server
 
