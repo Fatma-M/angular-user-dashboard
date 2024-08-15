@@ -17,4 +17,8 @@ export const routes: Routes = [
     path: `${MainPath.USERS_DETAILS}/:id`,
     component: UserDetailsComponent,
   },
+  {
+    path: '**',
+    redirectTo: `${MainPath.HOME}`,
+  },
 ];
