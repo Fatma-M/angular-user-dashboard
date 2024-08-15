@@ -17,3 +17,13 @@ export interface IUserDataResponse {
     text: string;
   };
 }
+
+export interface ISingleUserResponse {
+  data: IUserData;
+  support: IUsersResponseSupport;
+}
+
+export interface IUsersResponseSupport {
+  url: string;
+  text: string;
+}

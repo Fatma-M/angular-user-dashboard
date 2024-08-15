@@ -1,0 +1,72 @@
+<div
+  class="company-main container bg-white dark:bg-darkCardColor flex flex-col md:flex-row items-center justify-between absolute top-[120px] rounded-md md:h-[120px] md:w-full mx-auto"
+>
+  <div
+    class="company-logo md:h-full w-[50px] h-[50px] flex-1 flex items-center absolute top-[-25px] md:relative md:top-0 rounded-md md:rounded-none"
+  >
+    <img [src]="user.avatar" alt="" class="block mx-auto w-[80px]" />
+  </div>
+  <div
+    class="md:flex-[3] flex-1 flex flex-col md:items-start items-center justify-center px-8 mt-10 md:mt-0"
+  >
+    <p class="text-2xl font-bold mb-1">{{ user.email }}</p>
+  </div>
+  <div class="flex-[2] flex items-end justify-end md:mr-3 my-3 md:pr-4">
+    <a
+      class="bg-lighterGray dark:bg-darkThemeGray px-4 py-3 text-darkBlue dark:text-white rounded-md font-bold hover:bg-lightBlue hover:text-white"
+      [href]="'mailto:' + user.email"
+    >
+      {{ user.first_name }} Email
+    </a>
+  </div>
+</div>
+
+<div
+  class="bg-white dark:bg-darkCardColor rounded-md p-7 md:mt-[120px] mt-[150px] mb-10"
+>
+  <div class="flex items-center justify-between flex-col sm:flex-row gap-5">
+    <div class="time mt-1 text-center sm:text-left">
+      <span class="text-darkGray">{{ user.first_name }}</span>
+      <span class="text-darkGray">.</span>
+      <span class="text-darkGray">{{ user.last_name }}</span>
+      <p class="text-lg font-bold my-1">{{ user.email }}</p>
+    </div>
+    <a
+      class="bg-darkBlue md:py-2 md:px-7 py-1 px-3 rounded-md text-white hover:bg-lightBlue transition-colors ease-in-out"
+      [href]="'mailto:' + user.email"
+    >
+      Contact Now
+    </a>
+  </div>
+
+  <div class="mt-10 text-darkGray">
+    <p>
+      This is a fake paragraph for style purposes... Lorem ipsum dolor sit amet
+      consectetur, adipisicing elit. Minima dolorum corporis harum dolorem
+      voluptatum illum ad sed in delectus veniam? Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Voluptate enim assumenda dicta quidem
+      eveniet aperiam sint voluptas, laborum impedit nostrum. consectetur,
+      adipisicing elit. Minima dolorum corporis harum dolorem voluptatum illum
+      ad sed in delectus veniam? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Voluptate enim assumenda dicta quidem eveniet aperiam
+      sint voluptas, laborum impedit nostrum.
+    </p>
+  </div>
+</div>
+
+<div
+  class="bg-white dark:bg-darkCardColor mt-12 w-full flex items-center justify-between flex-col sm:flex-row gap-5 py-9 px-5 rounded-md"
+>
+  <div class="text-center sm:text-left">
+    <h2 class="font-bold text-xl">Support</h2>
+    <span class="text-darkGray">{{ support.text }}</span>
+  </div>
+  <div class="">
+    <a
+      class="bg-darkBlue md:py-2 md:px-7 py-1 px-3 rounded-md text-white hover:bg-lightBlue transition-colors ease-in-out"
+      [href]="support.url"
+    >
+      Support Now
+    </a>
+  </div>
+</div>
